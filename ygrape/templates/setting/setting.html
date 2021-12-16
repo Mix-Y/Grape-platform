@@ -1,0 +1,238 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="main">
+    <div class="mainav">
+        <ul>
+            <a href="/setting"><li>用户信息</li></a>
+            <a href="/repwd"><li>修改密码</li></a>
+    
+        </ul>
+    </div>
+
+<div class="body">
+    
+    <form action="" method="post">
+        <table class="table">
+            <tbody>
+                <tr class="tr1">
+                    <td width="120">
+                        用户名
+                    </td>
+                    <td>
+                        <input id="Name" name="Name" type="text" value="YGrape" />
+                    </td>
+                </tr>
+    
+                
+                <tr class="tr2">
+                    <td width="60">
+                        全名
+                    </td>
+                    <td>
+                        <input id="FullName" name="FullName" type="text" value="YGrape" />
+                    </td>
+                </tr>
+                <tr class="tr2">
+                    <td width="60">
+                        时区
+                    </td>
+                    <td>
+    
+                        <select name="TimeZoneInfoId" id="TimeZoneInfoId">
+                            <option value="">Select...</option>
+                                    <option value="Dateline Standard Time" >(UTC-12:00) 国际日期变更线西</option>
+                                    <option value="UTC-11" >(UTC-11:00) 协调世界时-11</option>
+                                    <option value="Hawaiian Standard Time" >(UTC-10:00) 夏威夷</option>
+                                    <option value="Aleutian Standard Time" >(UTC-10:00) 阿留申群岛</option>
+                                    <option value="Marquesas Standard Time" >(UTC-09:30) 马克萨斯群岛</option>
+                                    <option value="UTC-09" >(UTC-09:00) 协调世界时-09</option>
+                                    <option value="Alaskan Standard Time" >(UTC-09:00) 阿拉斯加</option>
+                                    <option value="Pacific Standard Time (Mexico)" >(UTC-08:00) 下加利福尼亚州</option>
+                                    <option value="UTC-08" >(UTC-08:00) 协调世界时-08</option>
+                                    <option value="Pacific Standard Time" >(UTC-08:00) 太平洋时间(美国和加拿大)</option>
+                                    <option value="US Mountain Standard Time" >(UTC-07:00) 亚利桑那</option>
+                                    <option value="Mountain Standard Time (Mexico)" >(UTC-07:00) 奇瓦瓦，拉巴斯，马萨特兰</option>
+                                    <option value="Mountain Standard Time" >(UTC-07:00) 山地时间(美国和加拿大)</option>
+                                    <option value="Yukon Standard Time" ></option>
+                                    <option value="Central America Standard Time" >(UTC-06:00) 中美洲</option>
+                                    <option value="Central Standard Time" >(UTC-06:00) 中部时间(美国和加拿大)</option>
+                                    <option value="Easter Island Standard Time" >(UTC-06:00) 复活节岛</option>
+                                    <option value="Central Standard Time (Mexico)" >(UTC-06:00) 瓜达拉哈拉，墨西哥城，蒙特雷</option>
+                                    <option value="Canada Central Standard Time" >(UTC-06:00) 萨斯喀彻温</option>
+                                    <option value="Eastern Standard Time" >(UTC-05:00) 东部时间(美国和加拿大)</option>
+                                    <option value="Eastern Standard Time (Mexico)" >(UTC-05:00) 切图马尔</option>
+                                    <option value="US Eastern Standard Time" >(UTC-05:00) 印地安那州(东部)</option>
+                                    <option value="Cuba Standard Time" >(UTC-05:00) 哈瓦那</option>
+                                    <option value="SA Pacific Standard Time" >(UTC-05:00) 波哥大，利马，基多，里奥布朗库</option>
+                                    <option value="Haiti Standard Time" >(UTC-05:00) 海地</option>
+                                    <option value="Turks And Caicos Standard Time" >(UTC-05:00) 特克斯和凯科斯群岛</option>
+                                    <option value="SA Western Standard Time" >(UTC-04:00) 乔治敦，拉巴斯，马瑙斯，圣胡安</option>
+                                    <option value="Paraguay Standard Time" >(UTC-04:00) 亚松森</option>
+                                    <option value="Venezuela Standard Time" >(UTC-04:00) 加拉加斯</option>
+                                    <option value="Pacific SA Standard Time" >(UTC-04:00) 圣地亚哥</option>
+                                    <option value="Atlantic Standard Time" >(UTC-04:00) 大西洋时间(加拿大)</option>
+                                    <option value="Central Brazilian Standard Time" >(UTC-04:00) 库亚巴</option>
+                                    <option value="Newfoundland Standard Time" >(UTC-03:30) 纽芬兰</option>
+                                    <option value="SA Eastern Standard Time" >(UTC-03:00) 卡宴，福塔雷萨</option>
+                                    <option value="Saint Pierre Standard Time" >(UTC-03:00) 圣皮埃尔和密克隆群岛</option>
+                                    <option value="E. South America Standard Time" >(UTC-03:00) 巴西利亚</option>
+                                    <option value="Argentina Standard Time" >(UTC-03:00) 布宜诺斯艾利斯</option>
+                                    <option value="Greenland Standard Time" >(UTC-03:00) 格陵兰</option>
+                                    <option value="Bahia Standard Time" >(UTC-03:00) 萨尔瓦多</option>
+                                    <option value="Montevideo Standard Time" >(UTC-03:00) 蒙得维的亚</option>
+                                    <option value="Magallanes Standard Time" >(UTC-03:00) 蓬塔阿雷纳斯</option>
+                                    <option value="Tocantins Standard Time" >(UTC-03:00) 阿拉瓜伊纳</option>
+                                    <option value="Mid-Atlantic Standard Time" >(UTC-02:00) 中大西洋 - 旧用</option>
+                                    <option value="UTC-02" >(UTC-02:00) 协调世界时-02</option>
+                                    <option value="Azores Standard Time" >(UTC-01:00) 亚速尔群岛</option>
+                                    <option value="Cape Verde Standard Time" >(UTC-01:00) 佛得角群岛</option>
+                                    <option value="UTC" >(UTC) 协调世界时</option>
+                                    <option value="Sao Tome Standard Time" >(UTC+00:00) 圣多美</option>
+                                    <option value="Greenwich Standard Time" >(UTC+00:00) 蒙罗维亚，雷克雅未克</option>
+                                    <option value="GMT Standard Time" >(UTC+00:00) 都柏林，爱丁堡，里斯本，伦敦</option>
+                                    <option value="Morocco Standard Time" >(UTC+01:00) 卡萨布兰卡</option>
+                                    <option value="W. Central Africa Standard Time" >(UTC+01:00) 中非西部</option>
+                                    <option value="Romance Standard Time" >(UTC+01:00) 布鲁塞尔，哥本哈根，马德里，巴黎</option>
+                                    <option value="Central European Standard Time" >(UTC+01:00) 萨拉热窝，斯科普里，华沙，萨格勒布</option>
+                                    <option value="Central Europe Standard Time" >(UTC+01:00) 贝尔格莱德，布拉迪斯拉发，布达佩斯，卢布尔雅那，布拉格</option>
+                                    <option value="W. Europe Standard Time" >(UTC+01:00) 阿姆斯特丹，柏林，伯尔尼，罗马，斯德哥尔摩，维也纳</option>
+                                    <option value="West Bank Standard Time" >(UTC+02:00) 加沙，希伯伦</option>
+                                    <option value="Kaliningrad Standard Time" >(UTC+02:00) 加里宁格勒</option>
+                                    <option value="South Africa Standard Time" >(UTC+02:00) 哈拉雷，比勒陀利亚</option>
+                                    <option value="Sudan Standard Time" >(UTC+02:00) 喀土穆</option>
+                                    <option value="E. Europe Standard Time" >(UTC+02:00) 基希讷乌</option>
+                                    <option value="Syria Standard Time" >(UTC+02:00) 大马士革</option>
+                                    <option value="Jordan Standard Time" >(UTC+02:00) 安曼</option>
+                                    <option value="Egypt Standard Time" >(UTC+02:00) 开罗</option>
+                                    <option value="South Sudan Standard Time" ></option>
+                                    <option value="Namibia Standard Time" >(UTC+02:00) 温得和克</option>
+                                    <option value="Libya Standard Time" >(UTC+02:00) 的黎波里</option>
+                                    <option value="Israel Standard Time" >(UTC+02:00) 耶路撒冷</option>
+                                    <option value="Middle East Standard Time" >(UTC+02:00) 贝鲁特</option>
+                                    <option value="FLE Standard Time" >(UTC+02:00) 赫尔辛基，基辅，里加，索非亚，塔林，维尔纽斯</option>
+                                    <option value="GTB Standard Time" >(UTC+02:00) 雅典，布加勒斯特</option>
+                                    <option value="Turkey Standard Time" >(UTC+03:00) 伊斯坦布尔</option>
+                                    <option value="Volgograd Standard Time" >(UTC+04:00) 伏尔加格勒</option>
+                                    <option value="E. Africa Standard Time" >(UTC+03:00) 内罗毕</option>
+                                    <option value="Arabic Standard Time" >(UTC+03:00) 巴格达</option>
+                                    <option value="Belarus Standard Time" >(UTC+03:00) 明斯克</option>
+                                    <option value="Arab Standard Time" >(UTC+03:00) 科威特，利雅得</option>
+                                    <option value="Russian Standard Time" >(UTC+03:00) 莫斯科，圣彼得堡</option>
+                                    <option value="Iran Standard Time" >(UTC+03:30) 德黑兰</option>
+                                    <option value="Russia Time Zone 3" >(UTC+04:00) 伊热夫斯克，萨马拉</option>
+                                    <option value="Caucasus Standard Time" >(UTC+04:00) 埃里温</option>
+                                    <option value="Azerbaijan Standard Time" >(UTC+04:00) 巴库</option>
+                                    <option value="Georgian Standard Time" >(UTC+04:00) 第比利斯</option>
+                                    <option value="Saratov Standard Time" >(UTC+04:00) 萨拉托夫</option>
+                                    <option value="Mauritius Standard Time" >(UTC+04:00) 路易港</option>
+                                    <option value="Arabian Standard Time" >(UTC+04:00) 阿布扎比，马斯喀特</option>
+                                    <option value="Astrakhan Standard Time" >(UTC+04:00) 阿斯特拉罕，乌里扬诺夫斯克</option>
+                                    <option value="Afghanistan Standard Time" >(UTC+04:30) 喀布尔</option>
+                                    <option value="Pakistan Standard Time" >(UTC+05:00) 伊斯兰堡，卡拉奇</option>
+                                    <option value="Qyzylorda Standard Time" >(UTC+05:00) 克孜洛尔达</option>
+                                    <option value="Ekaterinburg Standard Time" >(UTC+05:00) 叶卡捷琳堡</option>
+                                    <option value="West Asia Standard Time" >(UTC+05:00) 阿什哈巴德，塔什干</option>
+                                    <option value="Sri Lanka Standard Time" >(UTC+05:30) 斯里加亚渥登普拉</option>
+                                    <option value="India Standard Time" >(UTC+05:30) 钦奈，加尔各答，孟买，新德里</option>
+                                    <option value="Nepal Standard Time" >(UTC+05:45) 加德满都</option>
+                                    <option value="Bangladesh Standard Time" >(UTC+06:00) 达卡</option>
+                                    <option value="Omsk Standard Time" >(UTC+06:00) 鄂木斯克</option>
+                                    <option value="Central Asia Standard Time" >(UTC+06:00) 阿斯塔纳</option>
+                                    <option value="Myanmar Standard Time" >(UTC+06:30) 仰光</option>
+                                    <option value="North Asia Standard Time" >(UTC+07:00) 克拉斯诺亚尔斯克</option>
+                                    <option value="Altai Standard Time" >(UTC+07:00) 巴尔瑙尔，戈尔诺-阿尔泰斯克</option>
+                                    <option value="Tomsk Standard Time" >(UTC+07:00) 托木斯克</option>
+                                    <option value="N. Central Asia Standard Time" >(UTC+07:00) 新西伯利亚</option>
+                                    <option value="SE Asia Standard Time" >(UTC+07:00) 曼谷，河内，雅加达</option>
+                                    <option value="W. Mongolia Standard Time" >(UTC+07:00) 科布多</option>
+                                    <option value="Ulaanbaatar Standard Time" >(UTC+08:00) 乌兰巴托</option>
+                                    <option value="North Asia East Standard Time" >(UTC+08:00) 伊尔库茨克</option>
+                                    <option value="China Standard Time" selected>(UTC+08:00) 北京，重庆，香港特别行政区，乌鲁木齐</option>
+                                    <option value="Taipei Standard Time" >(UTC+08:00) 台北</option>
+                                    <option value="Singapore Standard Time" >(UTC+08:00) 吉隆坡，新加坡</option>
+                                    <option value="W. Australia Standard Time" >(UTC+08:00) 珀斯</option>
+                                    <option value="Aus Central W. Standard Time" >(UTC+08:45) 尤克拉</option>
+                                    <option value="Tokyo Standard Time" >(UTC+09:00) 大阪，札幌，东京</option>
+                                    <option value="North Korea Standard Time" >(UTC+09:00) 平壤</option>
+                                    <option value="Transbaikal Standard Time" >(UTC+09:00) 赤塔市</option>
+                                    <option value="Yakutsk Standard Time" >(UTC+09:00) 雅库茨克</option>
+                                    <option value="Korea Standard Time" >(UTC+09:00) 首尔</option>
+                                    <option value="AUS Central Standard Time" >(UTC+09:30) 达尔文</option>
+                                    <option value="Cen. Australia Standard Time" >(UTC+09:30) 阿德莱德</option>
+                                    <option value="West Pacific Standard Time" >(UTC+10:00) 关岛，莫尔兹比港</option>
+                                    <option value="AUS Eastern Standard Time" >(UTC+10:00) 堪培拉，墨尔本，悉尼</option>
+                                    <option value="E. Australia Standard Time" >(UTC+10:00) 布里斯班</option>
+                                    <option value="Vladivostok Standard Time" >(UTC+10:00) 符拉迪沃斯托克</option>
+                                    <option value="Tasmania Standard Time" >(UTC+10:00) 霍巴特</option>
+                                    <option value="Lord Howe Standard Time" >(UTC+10:30) 豪勋爵岛</option>
+                                    <option value="Russia Time Zone 10" >(UTC+11:00) 乔库尔达赫</option>
+                                    <option value="Bougainville Standard Time" >(UTC+11:00) 布干维尔岛</option>
+                                    <option value="Central Pacific Standard Time" >(UTC+11:00) 所罗门群岛，新喀里多尼亚</option>
+                                    <option value="Sakhalin Standard Time" >(UTC+11:00) 萨哈林</option>
+                                    <option value="Norfolk Standard Time" >(UTC+11:00) 诺福克岛</option>
+                                    <option value="Magadan Standard Time" >(UTC+11:00) 马加丹</option>
+                                    <option value="UTC+12" >(UTC+12:00) 协调世界时+12</option>
+                                    <option value="New Zealand Standard Time" >(UTC+12:00) 奥克兰，惠灵顿</option>
+                                    <option value="Kamchatka Standard Time" >(UTC+12:00) 彼得罗巴甫洛夫斯克-堪察加 - 旧用</option>
+                                    <option value="Fiji Standard Time" >(UTC+12:00) 斐济</option>
+                                    <option value="Russia Time Zone 11" >(UTC+12:00) 阿纳德尔，堪察加彼得罗巴甫洛夫斯克</option>
+                                    <option value="Chatham Islands Standard Time" >(UTC+12:45) 查塔姆群岛</option>
+                                    <option value="Tonga Standard Time" >(UTC+13:00) 努库阿洛法</option>
+                                    <option value="UTC+13" >(UTC+13:00) 协调世界时+13</option>
+                                    <option value="Samoa Standard Time" >(UTC+13:00) 萨摩亚群岛</option>
+                                    <option value="Line Islands Standard Time" >(UTC+14:00) 圣诞岛</option>
+                    
+                    
+                        </select>
+                        
+                    </td>
+                </tr>
+                
+                <tr class="tr2">
+                    <td>
+                        电话
+                    </td>
+                    <td>
+                        <input id="Tel" name="Tel" type="text" value="" />
+                    </td>
+                </tr>
+                <tr class="tr1">
+                    <td>
+                        Email
+                    </td>
+                    <td>
+                        <input id="Email" name="Email" type="text" value="YGrape@gmail.com" />
+                    </td>
+                </tr>
+                <tr class="tr2">
+                    <td>
+                        地址
+                    </td>
+                    <td>
+                        <input id="Address" name="Address" style="width:500px;" type="text" value="" />
+                    </td>
+                </tr>
+                <tr class="tr1">
+                    <td>
+                        介绍
+                    </td>
+                    <td>
+                        <textarea cols="80" id="Description" name="Description" rows="6" style="width:500px;"></textarea>
+                    </td>
+                </tr>
+                <tr class="tr2">
+                    <td colspan="2" align="center">
+                        <input type="submit" name="submit" id="" class="btn-primary" value="保存" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+</div>
+
+
+
+
+{% endblock %}

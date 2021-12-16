@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="main">
+    <div class="mainav">
+        <ul>
+            <a href="/group"><li>分组管理</li></a>
+            <a href="/control"><li>执行单元</li></a>
+            <a href="/plan"><li>执行计划</li></a>
+            <a href="/trigger"><li>触发器</li></a>
+        </ul>
+    </div>
+<div class="mainav2">
+    <ul>
+        <a href="/control"><li>执行单元管理</li></a>
+        <a href="/addcontrol"><li>添加执行单元</li></a>
+    </ul>
+</div>
+
+<div class="body">
+    <form action="" method="post">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td width="120">名称</td>
+                    <td><input id="name" name="name" type="text"  required="required"/></td>
+                </tr> 
+                <tr>
+                    <td width="120">控制器</td>
+                    <td><select name="c" id="c">
+                        {% for list in lists %}
+                            <option value="{{list.name}}" >{{list.name}}</option>
+                        {% endfor %}
+                        </select>
+                    </td>
+                </tr> 
+                <tr>
+                    <td width="120">命令</td>
+                    <td><textarea cols="80" id="order" name="order" rows="6" style="width:500px;" required="required"></textarea></td>
+                </tr>                                
+                <tr>
+                    <td width="120">介绍</td>
+                    <td><textarea cols="80" id="introduce" name="introduce" rows="6" style="width:500px;" required="required"></textarea></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="submit" name="submit" id="" class="btn-primary" value="提交" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+</div>
+
+
+
+
+{% endblock %}

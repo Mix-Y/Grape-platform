@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="main">
+<div class="mainav">
+    <ul>
+        <a href="/"><li>所有概况</li></a>
+        <a href="/list"><li>我的设备</li></a>
+        <a href="/sensor"><li>传感器</li></a>
+        <a href="/controller"><li>控制器</li></a>
+    </ul>
+</div>
+<div class="body">
+    <form action="" method="post">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td width="120">标识</td>
+                    <td><input id="mark" name="mark" type="text"  required="required"/> 例如：S1</td>
+                </tr>
+                <tr>
+                    <td width="120">名称</td>
+                    <td><input id="name" name="name" type="text"  required="required"/> 例如：某地温度传感器</td>
+                </tr>                
+                <tr>
+                    <td width="120">单位</td>
+                    <td><input id="measure" name="measure" type="text" required="required" /> 例如：°C</td>
+                </tr>    
+                <tr>
+                    <td width="120">类型</td>
+                    <td><select name="type" id="type">
+                        <option value="温度监控" >温度监控</option>
+                        <option value="气压监控" >气压监控</option>
+                        <option value="湿度监控" >湿度监控</option>
+                        <option value="CO2" >CO2</option>
+                        <option value="光照度" >光照度</option>
+                        <option value="颗粒物" >颗粒物</option>
+                        <option value="雨量" >雨量</option>
+                        <option value="光合有效辐射" >光合有效辐射</option>
+                        <option value="风向" >风向</option>
+                        <option value="风速" >风速</option>
+                        <option value="pH" >pH</option>
+                        <option value="土壤水分" >土壤水分</option>
+                        <option value="土壤温度" >土壤温度</option>
+                    </select>
+                </td>
+                </tr>              
+                <tr>
+                    <td width="120">分组</td>
+                    <td><select name="group" id="group">
+                        {% for group in groups %}
+                            <option value="{{group.name}}" >{{group.name}}</option>
+                        {% endfor %}
+                        </select>
+                    </td>
+                </tr> 
+                <tr>
+                    <td width="120">数据转换</td>
+                    <td>系数：<input id="x" name="x" type="text" value="1" required="required"/>偏移：<input id="p" name="p" type="text"  value="0" required="required"/>最终保存数值=上传数值*系数+偏移（如果不需要请保持默认）</td>
+                </tr>    
+                <tr>
+                    <td width="120">正常值范围</td>
+                    <td><input id="min" name="min" type="text" required="required"/> - <input id="max" name="max" type="text"  required="required"/></td>
+                </tr>
+                <tr>
+                    <td width="120">超过范围报警</td>
+                    <td><input id="alarm" name="alarm" type="checkbox" value="True"  /> 开启</td>
+                </tr>
+                <tr>
+                    <td width="120">发送间隔</td>
+                    <td><input id="time" name="time" type="text" value="10" required="required"/> S（作为判断传感器是否在线的衡量标准）</td>
+                </tr>            
+                <tr>
+                    <td width="120">介绍</td>
+                    <td><textarea cols="80" id="introduce" name="introduce" rows="6" style="width:500px;" required="required"></textarea></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="submit" name="submit" id="" class="btn-primary" value="提交" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+</div>
+
+
+
+
+{% endblock %}

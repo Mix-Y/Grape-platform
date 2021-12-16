@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="main">
+<div class="mainav">
+    <ul>
+        <a href="/"><li>所有概况</li></a>
+        <a href="/list"><li>我的设备</li></a>
+        <a href="/sensor"><li>传感器</li></a>
+        <a href="/controller"><li>控制器</li></a>
+    </ul>
+</div>
+<div class="mainav2">
+    <ul>
+        <a href="/"><li>集中监控</li></a>
+        <a href="/data"><li>监控详细</li></a>
+    </ul>
+</div>
+<div class="body3">
+    <div class="tablebox">
+        <p><b>详细分析</b></p>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <form action="" method="get">
+                    <td width="120">分组</td>
+                    <td><select name="group" id="group" style="width: 500px;">
+                        {% for group in groups %}
+                            <option value="{{group.name}}" >{{group.name}}</option>
+                        {% endfor %}
+                        </select>
+                    </td>
+                    <td  width="120"><input type="submit"  class="btn-primary" value="查询" /></td>
+                </form>
+                </tr>
+            </tbody>
+        </table>
+        <h>请选择分组进行查询</h>
+    </div>
+    {% for l in list %}
+    <div class="b4">
+        <div class="b1title">{{l.mark}}:{{l.name}}</div>
+        <div id="{{l.mark}}" class="b"></div>
+    </div>
+    <div class="b4">
+        <div class="b1title">{{l.mark}}:{{l.name}}</div>
+        <div id="{{l.mark}}2" class="b"></div>
+    </div>
+    {% endfor %}
+    <script>
+        {% for l in list %}
+        var data =  [{% for data in datas %}{% if data.mark == l.mark %}{{data.data}},{% endif %}{% endfor %}];
+            console.time('line');
+            Highcharts.chart('{{l.mark}}', {
+            chart: {
+                zoomType: 'x'
+            },
+            boost: {
+                useGPUTranslations: true
+            },
+            xAxis: {
+                        categories: [ {% for data in datas %}{% if data.mark == l.mark %}'{{data.time| time:"H:i:s"}}',{% endif %}{% endfor %}]
+                    },
+            title: {
+                text: '当日大数据图'
+            },
+            tooltip: {
+                valueDecimals: 2
+            },
+            yAxis: {
+                title: {
+                    text: '{{l.measure}}'
+                }
+            },
+            series: [{
+                name: '数值',
+                data: data,
+                lineWidth: 0.5
+            }]
+        });
+        var chart = Highcharts.chart('{{l.mark}}2', {
+            chart: {
+                type: 'line'
+            },
+            title: {
+                text: '近五分钟折线图'
+            },
+            subtitle: {
+                text: ''
+            },
+            xAxis: {
+                categories: [ {% for data in data2s %}{% if data.mark == l.mark %}'{{data.time| time:"i:s"}}',{% endif %}{% endfor %}]
+            },
+            yAxis: {
+                title: {
+                    text: '{{l.measure}}'
+                }
+            },
+            plotOptions: {
+                line: {
+                    dataLabels: {
+                        // 开启数据标签
+                        enabled: true          
+                    },
+                    // 关闭鼠标跟踪，对应的提示框、点击事件会失效
+                    enableMouseTracking: false
+                }
+            },
+            series: [{
+                name: '数值',
+                data: [{% for data in data2s %}{% if data.mark == l.mark %}{{data.data}},{% endif %}{% endfor %}]
+            }]
+        });
+        {% endfor %}
+    </script>
+</div>
+
+</div>
+
+
+
+
+{% endblock %}

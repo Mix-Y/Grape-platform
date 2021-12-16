@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="main">
+<div class="mainav">
+    <ul>
+        <a href="/group"><li>分组管理</li></a>
+        <a href="/control"><li>执行单元</li></a>
+        <a href="/plan"><li>执行计划</li></a>
+        <a href="/trigger"><li>触发器</li></a>
+    </ul>
+</div>
+<div class="mainav2">
+    <ul>
+        <a href="/trigger"><li>触发器管理</li></a>
+        <a href="/addtrigger"><li>添加触发器</li></a>
+    </ul>
+</div>
+
+
+<div class="body">
+    <form action="" method="post">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td width="120">介绍</td>
+                    <td><textarea cols="80" id="introduce" name="introduce" rows="6" style="width:500px;" required="required"></textarea></td>
+                </tr> 
+                <tr>
+                    <td width="120">传感器</td>
+                    <td><select name="sensor" id="sensor">
+                        {% for list in lists %}
+                            <option value="{{list.mark}}" >{{list.mark}}:{{list.name}}</option>
+                        {% endfor %}
+                        </select>
+                    </td>
+                </tr> 
+                <tr>
+                    <td width="120">执行条件</td>
+                    <td><select name="c1" id="c1">
+                            <option value="1" >大于</option>
+                            <option value="2" >小于</option>
+                            <option value="3" >大于等于</option>
+                            <option value="4" >小于等于</option>
+                            <option value="5" >等于</option>
+                            <option value="6" >不等于</option>
+                        </select> <input id="c2" name="c2" type="text"  required="required"/>数值</td>
+                </tr> 
+                <tr>
+                    <td width="120">执行提示</td>
+                    <td><input id="send" name="send" type="checkbox" value="True"/> 开启</td>
+                </tr> 
+                <tr>
+                    <td width="120">执行单元</td>
+                    <td><select name="order" id="order">
+                        {% for list2 in list2s %}
+                            <option value="{{list2.name}}" >{{list2.name}}</option>
+                        {% endfor %}
+                        </select>
+                    </td>
+                </tr>            
+                <tr>
+                    <td width="120">执行最小间隔</td>
+                    <td><input id="time" name="time" type="text"  required="required" style="width: 30px;"/>分钟</td>
+                </tr>   
+
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="submit" name="submit" id="" class="btn-primary" value="提交" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+</div>
+
+
+
+
+{% endblock %}

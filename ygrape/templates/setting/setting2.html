@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="main">
+<div class="mainav">
+    <ul>
+        <a href="/setting"><li>用户信息</li></a>
+        <a href="/repwd"><li>修改密码</li></a>
+
+    </ul>
+</div>
+
+<div class="body">
+    <form action="" method="post">
+        <table class="table">
+            <tbody>
+                <tr class="tr1">
+                    <td width="120">
+                        原密码
+                    </td>
+                    <td>
+                        <input id="oldpwd" name="oldpwd" type="password"  />
+                    </td>
+                </tr>
+    
+                
+                <tr class="tr2">
+                    <td width="60">
+                        新密码
+                    </td>
+                    <td>
+                        <input id="newpwd" name="newpwd" type="password"  />
+                    </td>
+                </tr>
+            
+                
+                <tr class="tr2">
+                    <td>
+                        重复
+                    </td>
+                    <td>
+                        <input id="repwd" name="repwd" type="password"  />
+                    </td>
+                </tr>
+
+                <tr class="tr2">
+                    <td colspan="2" align="center">
+                        <input type="submit" name="submit" id="" class="btn-primary" value="保存" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+</div>
+
+
+
+
+{% endblock %}

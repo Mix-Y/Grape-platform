@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="main">
+    <div class="mainav">
+        <ul>
+            <a href="/alarm"><li>预警概况</li></a>
+            <a href="/realarm"><li>预警处理</li></a>
+            <a href="/alarmset"><li>信息设置</li></a>
+    
+        </ul>
+    </div>
+    <div class="body">
+        <form action="" method="post">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td width="120">手机</td>
+                        <td><input id="mark" name="mark" type="text"  required="required"/> 用于接收预警信息</td>
+                    </tr>
+                    <tr>
+                        <td width="120">邮箱</td>
+                        <td><input id="mark" name="mark" type="text"  required="required"/> 用于接收预警信息</td>
+                    </tr>                                
+                    <tr>
+                        <td width="120">微信</td>
+                        <td><input id="mark" name="mark" type="text"  required="required"/> 用于接收预警信息</td>
+                    </tr>
+    
+                    <tr>
+                        <td colspan="2" align="center">
+                            <input type="submit" name="submit" id="" class="btn-primary" value="提交" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

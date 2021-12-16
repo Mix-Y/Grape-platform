@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="main">
+<div class="mainav">
+    <ul>
+        <a href="/group"><li>分组管理</li></a>
+        <a href="/control"><li>执行单元</li></a>
+        <a href="/plan"><li>执行计划</li></a>
+        <a href="/trigger"><li>触发器</li></a>
+    </ul>
+</div>
+<div class="mainav2">
+    <ul>
+        <a href="/plan"><li>执行计划管理</li></a>
+        <a href="/addplan"><li>添加执行计划</li></a>
+    </ul>
+</div>
+
+
+<div class="body">
+    <form action="" method="post">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td width="120">名称</td>
+                    <td><input id="name" name="name" type="text"  required="required"/></td>
+                </tr> 
+                <tr>
+                    <td width="120">执行单元</td>
+                    <td><select name="order" id="order">
+                        {% for list in lists %}
+                            <option value="{{list.name}}" >{{list.name}}</option>
+                        {% endfor %}
+                        </select>
+                    </td>
+                </tr>                               
+                <tr>
+                    <td width="120">执行时间</td>
+                    <td><input id="time" name="time" type="text"  required="required" style="width: 30px;"/>：00（0-23）</td>
+                </tr>   
+
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="submit" name="submit" id="" class="btn-primary" value="提交" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+</div>
+
+
+
+
+{% endblock %}

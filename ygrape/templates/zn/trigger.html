@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="main">
+<div class="mainav">
+    <ul>
+        <a href="/group"><li>分组管理</li></a>
+        <a href="/control"><li>执行单元</li></a>
+        <a href="/plan"><li>执行计划</li></a>
+        <a href="/trigger"><li>触发器</li></a>
+    </ul>
+</div>
+<div class="mainav2">
+    <ul>
+        <a href="/trigger"><li>触发器管理</li></a>
+        <a href="/addtrigger"><li>添加触发器</li></a>
+    </ul>
+</div>
+
+<div class="body">
+    <p style="font-size: 30px;margin: 30px;color: rgb(77, 77, 77);text-align: center;"><b>触发器管理</b></p>
+<table class="table">
+    <tbody>
+        <tr class="tabletitle">
+            <td width="50">传感器</td>
+            <td width="50">介绍</td>
+            <td width="50">执行条件</td>
+            <td width="30">执行提示</td>
+            <td width="50">执行控制命令单元</td>
+            <td width="50">最小触发间隔</td>
+            <td width="30">操作</td>
+        </tr>
+        {% for data in datas %}
+        <tr>
+            <td width="50">{{data.sensor}}</td>
+            <td width="50">{{data.introduce}}</td>
+            <td width="50">{% if data.c1 == '1' %}大于{% elif data.c1 == '2' %}小于{% elif data.c1 == '3' %}大于等于{% elif data.c1 == '4' %}小于等于{% elif data.c1 == '5' %}等于{% elif data.c1 == '6' %}不等于{% endif %} {{data.c2}}</td>
+            <td width="30">{{data.send}}</td>
+            <td width="50">{{data.order}}</td>
+            <td width="50">{{data.mintime}} 分钟</td>
+            <td width="30"><form action="" method="post"><textarea id="sc" name="sc" style="display: none;">{{data.id}}</textarea><input type="submit" name="submit" id="" class="btn-primary" value="删除" /></form></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+</div>
+
+
+
+
+{% endblock %}

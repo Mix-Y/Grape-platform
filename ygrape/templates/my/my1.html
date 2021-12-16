@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="main">
+<div class="mainav">
+    <ul>
+        <a href="/"><li>所有概况</li></a>
+        <a href="/list"><li>我的设备</li></a>
+        <a href="/sensor"><li>传感器</li></a>
+        <a href="/controller"><li>控制器</li></a>
+    </ul>
+</div>
+<div class="mainav2">
+    <ul>
+        <a href="/"><li>集中监控</li></a>
+        <a href="/data"><li>监控详细</li></a>
+    </ul>
+</div>
+
+
+{% for page in pages %}
+<div class="b3">
+    <div class="b2title">{{page.name}}</div>
+    <div  class="b">
+        <table class="table">
+            <tbody>
+                <tr class="tabletitle">
+                    <td width="100">名称</td>
+                    <td>数值</td>
+                    <td width="150">更新时间</td>
+                </tr>
+                {% for data in datas %}
+                {% if data.group == page.name %}
+                <tr>
+                    <td width="100">{{data.name}}</td>
+                    <td>{{data.data}} {{data.measure}}</td>
+                    <td width="150">{{data.update}}</td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endfor %}
+
+
+
+</div>
+
+
+
+
+{% endblock %}

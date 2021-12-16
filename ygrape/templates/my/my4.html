@@ -1,0 +1,59 @@
+
+
+
+
+
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="main">
+<div class="mainav">
+    <ul>
+        <a href="/"><li>所有概况</li></a>
+        <a href="/list"><li>我的设备</li></a>
+        <a href="/sensor"><li>传感器</li></a>
+        <a href="/controller"><li>控制器</li></a>
+    </ul>
+</div>
+<div class="body">
+    <form action="" method="post">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td width="120">标识</td>
+                    <td><input id="mark" name="mark" type="text"  required="required"/> 例如：C1</td>
+                </tr>
+                <tr>
+                    <td width="120">名称</td>
+                    <td><input id="name" name="name" type="text"  required="required"/> 例如：某地滴灌设备</td>
+                </tr>                   
+                <tr>
+                    <td width="120">类型</td>
+                    <td><select name="type" id="type">
+                        <option value="开关型" >开关型</option>
+                        <option value="数值型" >数值型</option>
+                    </select>
+                </td>
+                </tr>              
+                <tr>
+                    <td width="120">介绍</td>
+                    <td><textarea cols="80" id="introduce" name="introduce" rows="6" style="width:500px;" required="required"></textarea></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="submit" name="submit" id="" class="btn-primary" value="提交" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+</div>
+
+
+
+
+{% endblock %}

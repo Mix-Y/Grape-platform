@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="main">
+    <div class="mainav">
+        <ul>
+            <a href="/group"><li>分组管理</li></a>
+            <a href="/control"><li>执行单元</li></a>
+            <a href="/plan"><li>执行计划</li></a>
+            <a href="/trigger"><li>触发器</li></a>
+        </ul>
+    </div>
+<div class="mainav2">
+    <ul>
+        <a href="/control"><li>执行单元管理</li></a>
+        <a href="/addcontrol"><li>添加执行单元</li></a>
+    </ul>
+</div>
+
+<div class="body">
+    <p style="font-size: 30px;margin: 30px;color: rgb(77, 77, 77);text-align: center;"><b>执行单元管理</b></p>
+<table class="table">
+    <tbody>
+        <tr class="tabletitle">
+            <td width="50">序号</td>
+            <td width="150">名称</td>
+            <td width="150">控制器</td>
+            <td width="800">命令</td>
+            <td>介绍</td>
+
+            <td width="30">操作</td>
+        </tr>
+        {% for data in datas %}
+        <tr>
+            <td width="50">{{data.id}}</td>
+            <td width="180">{{data.name}}</td>
+            <td width="150">{{data.controller}}</td>
+            <td width="800">{{data.order}}</td>
+            <td>{{data.introduce}}</td>
+            <td ><form action="" method="post"><textarea id="sc" name="sc" style="display: none;">{{data.id}}</textarea><input type="submit" name="submit" id="" class="btn-primary" value="删除" /></form></td>
+        </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+</div>
+</div>
+
+
+
+
+{% endblock %}

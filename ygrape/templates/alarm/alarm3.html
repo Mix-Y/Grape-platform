@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="main">
+    <div class="mainav">
+        <ul>
+            <a href="/alarm"><li>预警概况</li></a>
+            <a href="/realarm"><li>预警处理</li></a>
+            <a href="/alarmset"><li>信息设置</li></a>
+    
+        </ul>
+    </div>
+
+
+    <div class="body">
+        <p style="font-size: 30px;margin: 30px;color: rgb(77, 77, 77);text-align: center;"><b>未处理</b></p>
+    <table class="table">
+        <tbody>
+            <tr class="tabletitle">
+                <td width="180">时间</td>
+                <td width="50">级别</td>
+                <td>原因</td>
+                <td width="50">状态</td>
+                <td width="50">操作</td>
+            </tr>
+            {% for data in datas %}
+            <tr>
+                <td width="180">{{data.time}}</td>
+                <td width="50">{{data.level}}</td>
+                <td>{{data.cause}}</td>
+                <td width="50">未处理</td>
+                <td width="50"><form action="" method="post"><textarea id="fs" name="fs" style="display: none;">1</textarea><textarea id="sc" name="sc" style="display: none;">{{data.id}}</textarea><input type="submit" name="submit" id="" class="btn-primary" value="已处理" /></form>
+                    <form action="" method="post"><textarea id="fs" name="fs" style="display: none;">2</textarea><textarea id="sc" name="sc" style="display: none;">{{data.id}}</textarea><input type="submit" name="submit" id="" class="btn-primary" value="忽略" style="margin-top: 5px;background-color: rgb(82, 83, 83);"/></form></td>
+            </tr>
+            {% endfor %}
+    
+        </tbody>
+    </table>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

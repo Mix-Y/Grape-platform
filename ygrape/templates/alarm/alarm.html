@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="main">
+    <div class="mainav">
+        <ul>
+            <a href="/alarm"><li>预警概况</li></a>
+            <a href="/realarm"><li>预警处理</li></a>
+            <a href="/alarmset"><li>信息设置</li></a>
+    
+        </ul>
+    </div>
+    <div class="body">
+        <div>
+            <div class="box">
+                <div class="box2">当日预警</div>
+                <div class="box3">
+                    <img src="/static/images/icon2.png" alt="" height="100%" style="float: left;">
+                    <div class="box4">
+                        <li class="li1"> <b>{{d}}</b> 次</li>
+                        <li class="li2"> <b>{{d2}}</b> 次</li>
+                        <li class="li3"> <b>{{d3}}</b> 次</li>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box2">当月预警</div>
+                <div class="box3">
+                    <img src="/static/images/icon3.png" alt="" height="100%" style="float: left;">
+                    <div class="box4">
+                        <li class="li1"> <b>{{m}}</b> 次</li>
+                        <li class="li2"> <b>{{m2}}</b> 次</li>
+                        <li class="li3"> <b>{{m3}}</b> 次</li>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box2">当年预警</div>
+                <div class="box3">
+                    <img src="/static/images/icon4.png" alt="" height="100%" style="float: left;">
+                    <div class="box4">
+                        <li class="li1"> <b>{{y}}</b> 次</li>
+                        <li class="li2"> <b>{{y2}}</b> 次</li>
+                        <li class="li3"> <b>{{y3}}</b> 次</li>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box2">总预警</div>
+                <div class="box3">
+                    <img src="/static/images/icon5.png" alt="" height="100%" style="float: left;">
+                    <div class="box4">
+                        <li class="li1"> <b>{{a}}</b> 次</li>
+                        <li class="li2"> <b>{{a2}}</b> 次</li>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="font-size: 10px;margin-top: 50px;float: left;">
+            <li class="li1">预警数量</li>
+            <li class="li2">成功处理</li>
+            <li class="li3">相较上次</li>
+        </div>
+        <div class="body2" style="margin-top: 100px;">
+            <div class="b1">
+                <div class="b1title">当日预警</div>
+                <div id="container" class="b"></div>
+            </div>
+            <div class="b2">
+                <div class="b2title">最新预警</div>
+                <div  class="b">
+                    <table class="table">
+                        <tbody>
+                            <tr class="tabletitle">
+                                <td width="120">时间</td>
+                                <td width="50">级别</td>
+                                <td>原因</td>
+                                <td width="50">状态</td>
+                            </tr>
+                            {% for data in datas %}
+                            <tr >
+                                <td width="120">{{data.time}}</td>
+                                <td width="50">{{data.level}}</td>
+                                <td style="overflow:hidden;">{{data.cause}}</td>
+                                <td width="50">{% if data.state == '0' %}未处理{% elif data.state == '1' %}已处理{% elif data.state == '2' %}忽略{% endif %}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+        </div>
+        
+
+    </div>
+
+
+    <script>
+        var chart = Highcharts.chart('container',{
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: '当日预警'
+    },
+    subtitle: {
+        text: ''
+    },
+    xAxis: {
+        categories: ['0:00', '1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00', '9:00', '10:00', '11:00','12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'],
+        crosshair: true
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: ''
+        }
+    },
+    tooltip: {
+
+    },
+    plotOptions: {
+        column: {
+            borderWidth: 0
+        }
+    },
+            series: [{
+                name: '预警次数',
+                data: [{% for list in lists %}{{list}},{% endfor %}]
+            }, {
+                name: '成功处理',
+                data: [{% for list2 in list2s %}{{list2}},{% endfor %}]
+            }]
+});
+    </script>
+</div>
+
+
+
+
+{% endblock %}
